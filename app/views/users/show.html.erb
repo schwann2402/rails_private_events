@@ -1,0 +1,10 @@
+<h1>Your created events: </h1>
+<br>
+<ul>
+  <% current_user.created_events.each do |event| %>
+    <li style= "font-weight: bolder"> <%= event.title %> </li>
+    <li> <%= event.description %> </li>
+    <li> <%= event.date %> </li>
+    <hr>
+  <% end %>
+</ul>

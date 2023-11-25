@@ -1,0 +1,9 @@
+.new_event_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+  padding-top: 20px;
+  
+}

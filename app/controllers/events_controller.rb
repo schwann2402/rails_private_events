@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :authenticate_user!, except: :index
-  
+
   def index
     @events = Event.all
   end
@@ -12,8 +12,9 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-    if @event.save?
-      redirect_to @event, notice: 'You have successfully created an event!'
+    if @event.save
+      flash[:success] = 'You have successfully created an event!'
+      redirect_to events_path
     else 
       render :new, notice: 'Your event was not created'
     end
@@ -25,7 +26,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update?
+    if @event.update
       redirect_to @event, notice: 'Your event was updated'
     else
       render :edit

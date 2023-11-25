@@ -1,0 +1,23 @@
+<div>
+  <div class="mb-3">
+    <%= form_with model: @event, data: {turbo: false} do |form| %>
+      <% if @event.errors.any? %>
+        <ul>
+          <% @event.errors.full_messages.each do |error| %>
+            <li> <%= error %> </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= form.label :title, class:'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+      <div class="mb-3">
+        <%= form.label :date, class:'form-label' %>
+        <%= form.text_field :date, class: 'form-control'  %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :description, class:'form-label' %>
+        <%= form.text_area :description, class: 'form-control form-control-lg' %>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
